@@ -1,0 +1,34 @@
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-3">add new</h1>
+    </div>
+
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+                <form [formGroup]="addform" (submit)="onSubmit()">
+                        <div class="form-group">
+                          <label for="exampleFormControlInput1">Title</label>
+                          <input formControlName="title" type="email" class="form-control" id="exampleFormControlInput1" placeholder="enter title">
+                          <div *ngIf="addform.controls['title'].errors?.required" class="invalid-feadback">
+                                    Title required
+                          </div>
+                        </div>
+                        
+                        
+                        <div class="form-group">
+                          <label for="exampleFormControlTextarea1">body</label>
+                          <textarea formControlName="body" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="enter body"></textarea>
+                          
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+
+                      </form>
+
+        </div>
+
+    </div>
+
+</div>
