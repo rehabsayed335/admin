@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup ,FormBuilder, Validators} from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import {LoginService} from './../../../shared/services/login.service'
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
 
   constructor( private _FormBuilder:FormBuilder,
     private _ToastrService:ToastrService,
-    private _LoginService:LoginService
+    private _LoginService:LoginService,
+    private router:Router
     ) { }
 
   ngOnInit(): void {
@@ -27,7 +29,16 @@ export class LoginComponent implements OnInit {
       return;
     }*/
     this._LoginService.login(this.loginform.value).subscribe(
-      res=>{ console.log(res)},
+      (
+        res:any)=>{
+        if(res.success){
+          localStorage.setItem("token",res.success.token);
+          this.router.navigate(['/admin/posts']);
+          console.log(res);
+          console.log(localStorage.getItem("token"))
+        }
+
+      },
       err=>{console.log(err)}
     )
      
@@ -40,8 +51,8 @@ export class LoginComponent implements OnInit {
 buildloginform()
   {
     this.loginform = this._FormBuilder.group({
-      email:['',Validators.required],
-      password:['',Validators.required]
+      email:['Test@test.com',Validators.required],
+      password:['123456789',Validators.required]
     }
 
     )

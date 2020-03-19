@@ -11,6 +11,7 @@ export class LoginService {
 
   login(data)
   {
-    return this._HttpClient.post(`${environment.apiurl}/login/Post`,data);
+    //return this._HttpClient.post(`${environment.apiurl}/login/Post`,data);
+    return this._HttpClient.post(`${environment.apiurl}/login?lang=en`,data);
   }
 }

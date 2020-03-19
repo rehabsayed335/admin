@@ -6,9 +6,14 @@ import { from } from 'rxjs';
 import { LoginComponent } from './views/auth/login/login.component';
 
 const routes: Routes = [
+  /*{
+    path: '',
+    loadChildren:() =>import('/views/auth)
+
+  },*/
   {
     path: '',
-    component : LoginComponent
+    loadChildren: () => import('./views/auth/auth.module').then(m => m.AuthModule)
 
   },
   {

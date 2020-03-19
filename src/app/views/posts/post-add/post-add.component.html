@@ -12,15 +12,31 @@
                         <div class="form-group">
                           <label for="exampleFormControlInput1">Title</label>
                           <input formControlName="title" type="email" class="form-control" id="exampleFormControlInput1" placeholder="enter title">
-                          <div *ngIf="addform.controls['title'].errors?.required" class="invalid-feadback">
+                          <!--<div *ngIf="addform.controls['title'].errors?.required" class="invalid-feadback">
                                     Title required
-                          </div>
+                          </div>-->
                         </div>
                         
                         
                         <div class="form-group">
                           <label for="exampleFormControlTextarea1">body</label>
                           <textarea formControlName="body" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="enter body"></textarea>
+                          
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleFormControlInput1">category_id</label>
+                          <input formControlName="category_id" type="text" class="form-control" id="exampleFormControlInput1" placeholder="enter title">
+                          
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleFormControlInput1">language</label>
+                          <input formControlName="language" type="text" class="form-control" id="exampleFormControlInput1" placeholder="enter language">
+                          
+                        </div>
+
+                        <div class="form-group">
+                          <label for="exampleFormControlInput1">img</label>
+                          <input formControlName="image" type="file" class="form-control" id="exampleFormControlInput1" placeholder="load img">
                           
                         </div>
                         <button type="submit" class="btn btn-primary">Save</button>
